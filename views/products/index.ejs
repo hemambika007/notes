@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/91abd10b8f.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-image: url("https://images.pexels.com/photos/1025469/pexels-photo-1025469.jpeg?auto=compress&cs=tinysrgb&w=600");
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card {
+            margin: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+        }
+
+        .newNotes {
+            text-align: center;
+            margin: 1rem;
+        }
+    </style>
+    <title>All Products</title>
+</head>
+<body>
+<h1 style="text-align: center; color: #fff;">My Notes</h1>
+<a href="/">Home</a>
+
+<div class="newNotes">
+    <a class="btn btn-info" href="/products/new">Add New Notes</a>
+</div>
+
+<div class="container">
+    <div class="row">
+        <% for(let product of products) { %>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card overflow-hidden" style="height: 200px;" onclick="window.location.href = '/products/<%=product._id%>';">
+                <div class="card-body">
+                    <h5 class="card-title" style="z-index: 1;
+                    color: white;
+                    font-size: 40px;
+                    font-family: 'Raleway', sans-serif;"><%= product.title %></h5>
+                    <p class="card-text" style="color: #fff;"><%= product.description %></p>
+                </div>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>
